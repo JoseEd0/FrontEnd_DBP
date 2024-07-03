@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
-import { login } from "./api"; 
+import { login } from "./Api.jsx"
 
 const Login = () => {
     const [username, setUsername] = useState("");

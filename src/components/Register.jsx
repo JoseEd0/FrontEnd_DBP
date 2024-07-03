@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
-import { fetchRegister } from "./api";
+import { fetchRegister } from "./Api";
 import '../styles/Formulario.css';
 import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
-import { login } from "./api"; 
+import { login } from "./api";
+import '../styles/Formulario.css'; // Importar los estilos
+import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -18,25 +20,38 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text" 
-                placeholder="Username"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-                required
-            />
-            <br />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                required
-            />
-            <br />
-            <button type="submit">Login</button>
-        </form>
+        <div className="register-container">
+            <div className="logo-container">
+                <img src={gato} alt="Gato" className="logo" />
+                <h1 className="title">SaborLocal</h1>
+            </div>
+            <form onSubmit={handleSubmit} className="register-form">
+                <h2 className="form-title">INICIAR SESIÓN</h2>
+                <input
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value)}
+                    className="input-field"
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    className="input-field"
+                    required
+                />
+                <button type="submit" className="submit-btn">LOGIN</button>
+                <div className="divider">
+                    <span>OR WITH</span>
+                </div>
+                <div className="login-container">
+                    <span>Don't have an account? <a href="/register" className="login-link">Register</a></span>
+                </div>
+            </form>
+        </div>
     );
 };
 

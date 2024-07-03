@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { fetchRegister } from "./api";
-import '../styles/Register.css';
+import '../styles/Formulario.css';
 import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
 
 const Register = () => {

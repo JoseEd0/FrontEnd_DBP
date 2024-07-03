@@ -1,0 +1,158 @@
+/* General styles for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('../assets/paisaje4.png'); /* Cambia esto a la ruta correcta */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden; /* Eliminar scroll */
+}
+
+/* Container for the register section */
+.register-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Container for the logo and title */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 90px; /* Ajustar la posición del logo */
+}
+
+/* Style for the logo image */
+.logo {
+    width: 150px; /* Ajustar el tamaño de la imagen */
+    height: 150px;
+}
+
+/* Style for the title */
+.title {
+    color: rgb(132, 191, 236);
+    font-size: 3.5rem; /* Ajustar el tamaño del texto */
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Añadir sombra para destacar */
+    animation: pulse 3s infinite; /* Animación de pulso */
+    margin-left: -150px; /* Ajustar la posición del texto */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Container for the registration form */
+.register-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px); /* Efecto de difuminado */
+    animation: fadeIn 1s ease-in-out;
+    margin-right: 50px; /* Ajustar la posición del formulario */
+    width: 350px; /* Hacer el formulario más compacto */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Style for the form title */
+.form-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #212121; /* Dark color for the title */
+    animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Style for the input fields */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #eedcdc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.6); /* Color más claro para adaptarse al fondo */
+}
+
+.input-field:focus {
+    border-color: #408cde;
+    box-shadow: 0 0 5px rgba(64, 140, 222, 0.5);
+}
+
+/* Style for the submit button */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #212121;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #333333;
+}
+
+/* Divider style */
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    color: #888888; /* Dark color for the divider text */
+}
+
+/* Container for the login link */
+.login-container {
+    text-align: center;
+    color: #212121; /* Dark color for the login text */
+}
+
+/* Style for the login link */
+.login-link {
+    color: #408cde;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #285a8e;
+    text-decoration: underline;
+}

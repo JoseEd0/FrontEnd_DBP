@@ -40,3 +40,60 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Estilos para el componente Home */
+.home {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #004d40;
+  color: #fff;
+}
+
+.home h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-container input {
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1em;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00796b;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.guide-me {
+  margin-top: 20px;
+}
+
+.guide-me span {
+  margin-right: 10px;
+}
+
+.guide-me button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #00796b;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+}

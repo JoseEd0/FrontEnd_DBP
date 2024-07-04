@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
-import { login } from "./api";
+import { login } from "./Api";
 import '../styles/Formulario.css'; // Importar los estilos
 import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
 

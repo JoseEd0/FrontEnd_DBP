@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { getRoleBasedOnToken, login as apiLogin } from "./components/api.jsx";
+import { getRoleBasedOnToken, login as apiLogin } from "./components/Api.jsx";
 
 const AuthContext = createContext();
 

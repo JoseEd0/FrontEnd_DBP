@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Formulario.css';// Utilizando App.css para los estilos
+import '../styles/Formulario.css';
 
 const Home = () => {
   const [location, setLocation] = useState('');

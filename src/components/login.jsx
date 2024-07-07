@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
-import { login } from "./Api";
-import '../styles/Formulario.css'; // Importar los estilos
-import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
+import { useNavigate } from "react-router-dom";
+import '../styles/Formulario.css';
+import gato from '../assets/gato.png';
 
 const Login = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const { login: setAuthToken } = useAuth();
+    const { login } = useAuth();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await login(username, password); // Usando username para el login
-            setAuthToken(response.token);
+            await login(username, password);
+            navigate("/home");
         } catch (error) {
             console.error("Login failed: ", error);
+            setError("Usuario o contraseña incorrectos.");
         }
     };
 
@@ -44,6 +47,7 @@ const Login = () => {
                     required
                 />
                 <button type="submit" className="submit-btn">LOGIN</button>
+                {error && <p className="error-message">{error}</p>}
                 <div className="divider">
                     <span>OR WITH</span>
                 </div>

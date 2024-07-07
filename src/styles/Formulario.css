@@ -264,3 +264,44 @@ body {
     margin: 5px 0;
   }
   
+  /* Formulario.css */
+.user-page, .post-restaurant {
+    padding: 20px;
+  }
+  
+  .user-page ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-page li {
+    margin: 10px 0;
+  }
+  
+  .post-restaurant form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .post-restaurant input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .post-restaurant button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .post-restaurant button:hover {
+    background-color: #0056b3;
+  }
+  

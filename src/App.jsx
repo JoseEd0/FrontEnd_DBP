@@ -6,9 +6,10 @@ import NavBar from './components/NavBar';
 import Login from './components/login';
 import Register from './components/Register';
 import Home from './components/Home';
+import User from './components/User';
+import PostRestaurant from './components/PostRestaurant';
 import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-
 
 const App = () => {
     return (
@@ -19,6 +20,8 @@ const App = () => {
                     <Route path="/" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+                    <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
+                    <Route path="/post-restaurant" element={<ProtectedRoute><PostRestaurant /></ProtectedRoute>} />
                 </Routes>
             </Router>
         </AuthProvider>

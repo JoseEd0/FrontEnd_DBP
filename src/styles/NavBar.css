@@ -1,11 +1,12 @@
 /* General styles for the body */
-/*body {
+body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #212121; /* Background color for the page */
+}
   
-  /* Navbar container */
+/* Navbar container */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -43,6 +44,7 @@
 .navbar-list {
     list-style: none;
     display: flex;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
     margin: 0;
     padding: 0;
 }
@@ -138,4 +140,3 @@
 .navbar-list li button:hover::before {
     width: 100%;
 }
-    

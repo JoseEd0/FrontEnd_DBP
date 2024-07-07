@@ -1,3 +1,4 @@
+// NavBar.jsx
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
@@ -24,6 +25,7 @@ const NavBar = () => {
                 {token ? (
                     <>
                         <li><Link to="/home">Home</Link></li>
+                        <li><Link to="/user">User</Link></li>
                         <li><button onClick={logout}>Logout</button></li>
                     </>
                 ) : (

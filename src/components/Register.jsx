@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { fetchRegister } from "./Api";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import '../styles/Formulario.css';
-import gato from '../assets/gato.png'; // Asegúrate de que la ruta del archivo de imagen sea correcta
+import gato from '../assets/gato.png';
 
 const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { login } = useAuth(); // Utiliza login para establecer el token después del registro
+    const [nombre, setNombre] = useState("");
+    const { login } = useAuth();
+    const navigate = useNavigate(); // Usa el hook useNavigate
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await fetchRegister({ username, email, password });
-            // Después de registrar, inicia sesión automáticamente para establecer el token
+            await fetchRegister({ username, email, password, nombre });
             await login(username, password);
+            navigate("/home"); // Redirige a /home después del registro exitoso
         } catch (error) {
             console.error("Registration failed: ", error);
         }
     };
-
     return (
         <div className="register-container">
             <div className="logo-container">
@@ -29,6 +31,14 @@ const Register = () => {
             </div>
             <form onSubmit={handleSubmit} className="register-form">
                 <h2 className="form-title">REGISTRO</h2>
+                <input
+                    type="text"
+                    placeholder="Nombre"
+                    value={nombre} // Nuevo campo de entrada para nombre
+                    onChange={(event) => setNombre(event.target.value)}
+                    className="input-field"
+                    required
+                />
                 <input
                     type="text"
                     placeholder="Username"

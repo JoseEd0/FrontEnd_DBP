@@ -1,26 +1,30 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { getRoleBasedOnToken, login as apiLogin } from "./components/Api.jsx";
+import { getRoleBasedOnToken, login as apiLogin } from "./components/Api.jsx"; // Ajustado el path y renombrado apiLogin
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem("authToken"));
-    const [userRole, setUserRole] = useState(getRoleBasedOnToken()); // Obtener el rol al cargar
+    const [userRole, setUserRole] = useState(getRoleBasedOnToken());
 
     useEffect(() => {
-        if (token) {
-            const role = getRoleBasedOnToken();
-            if (role) setUserRole(role);
-        }
+        const role = getRoleBasedOnToken();
+        setUserRole(role);
     }, [token]);
 
     const login = async (username, password) => {
-        const data = await apiLogin(username, password);
-        if (data.token) {
-            setToken(data.token);
-            localStorage.setItem("authToken", data.token);
-            const role = getRoleBasedOnToken();
-            if (role) setUserRole(role);
+        try {
+            const data = await apiLogin(username, password);
+            if (data.token) {
+                setToken(data.token);
+                localStorage.setItem("authToken", data.token);
+                setUserRole(getRoleBasedOnToken());
+            } else {
+                throw new Error("Invalid login");
+            }
+        } catch (error) {
+            console.error("Error en login:", error);
+            throw error;
         }
     };
 

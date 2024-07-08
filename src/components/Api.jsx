@@ -45,3 +45,43 @@ export const login = async (username, password) => {
         throw error;
     }
 };
+
+export const fetchRestaurantes = async () => {
+    try {
+        const response = await axios.get(`${BACKEND_URL}/restaurantes`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching restaurantes:", error.response ? error.response.data : error.message);
+        throw error;
+    }
+};
+
+export const fetchRestauranteById = async (id) => {
+    try {
+        const response = await axios.get(`${BACKEND_URL}/restaurantes/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching restaurante with id ${id}:`, error.response ? error.response.data : error.message);
+        throw error;
+    }
+};
+
+export const createRestaurante = async (body) => {
+    try {
+        const response = await axios.post(`${BACKEND_URL}/restaurantes`, body);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating restaurante:", error.response ? error.response.data : error.message);
+        throw error;
+    }
+};
+
+export const fetchUserProfile = async (id) => {
+    try {
+        const response = await axios.get(`${BACKEND_URL}/usuario/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching user profile with id ${id}:`, error.response ? error.response.data : error.message);
+        throw error;
+    }
+};

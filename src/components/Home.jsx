@@ -1,5 +1,6 @@
 // Home.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchRestaurantes } from './Api';
 import '../styles/Formulario.css';
 import SearchBar from './SearchBar';
 import Restaurantes from './Restaurantes';
@@ -7,20 +8,25 @@ import Restaurantes from './Restaurantes';
 const Home = () => {
   const [restaurantes, setRestaurantes] = useState([]);
 
-  const handleSearch = (location, query, priceRange) => {
-    // Simular una búsqueda de restaurantes
-    const results = [
-      { name: 'Restaurante 1', location: 'Lima', cuisine: 'Peruana', priceRange: '$$' },
-      { name: 'Restaurante 2', location: 'Cusco', cuisine: 'Italiana', priceRange: '$$$' },
-      { name: 'Restaurante 3', location: 'Arequipa', cuisine: 'Japonesa', priceRange: '$' },
-    ];
+  useEffect(() => {
+    const loadRestaurants = async () => {
+      try {
+        const data = await fetchRestaurantes();
+        setRestaurantes(data.content); // Asume que la API devuelve los restaurantes en un campo `content`
+      } catch (error) {
+        console.error('Error fetching restaurants:', error);
+      }
+    };
 
+    loadRestaurants();
+  }, []);
+
+  const handleSearch = (location, query) => {
     // Filtrar los resultados de acuerdo a los criterios de búsqueda
-    const filteredResults = results.filter(
+    const filteredResults = restaurantes.filter(
       (restaurante) =>
         restaurante.location.includes(location) &&
-        restaurante.cuisine.includes(query) &&
-        restaurante.priceRange.includes(priceRange)
+        restaurante.name.includes(query)
     );
 
     setRestaurantes(filteredResults);

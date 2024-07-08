@@ -4,10 +4,9 @@ import React, { useState } from 'react';
 const SearchBar = ({ onSearch }) => {
   const [location, setLocation] = useState('');
   const [query, setQuery] = useState('');
-  const [priceRange, setPriceRange] = useState('');
 
   const handleSearch = () => {
-    onSearch(location, query, priceRange);
+    onSearch(location, query);
   };
 
   return (
@@ -20,15 +19,9 @@ const SearchBar = ({ onSearch }) => {
       />
       <input
         type="text"
-        placeholder="Cuisine, restaurant name..."
+        placeholder="Restaurant name..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Price range"
-        value={priceRange}
-        onChange={(e) => setPriceRange(e.target.value)}
       />
       <button onClick={handleSearch}>SEARCH</button>
     </div>

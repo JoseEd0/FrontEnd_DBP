@@ -97,3 +97,15 @@
   font-size: 1em;
   cursor: pointer;
 }
+
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff; /* Fondo blanco para la página */
+}
+
+.app-container {
+  padding-top: 60px; /* Espacio superior para el navbar fijo */
+}

@@ -46,9 +46,14 @@ export const login = async (username, password) => {
     }
 };
 
-export const fetchRestaurantes = async () => {
+export const fetchRestaurantes = async (page = 0, size = 10) => {
     try {
-        const response = await axios.get(`${BACKEND_URL}/restaurantes`);
+        const response = await axios.get(`${BACKEND_URL}/restaurantes`, {
+            params: {
+                page,
+                size
+            }
+        });
         return response.data;
     } catch (error) {
         console.error("Error fetching restaurantes:", error.response ? error.response.data : error.message);
@@ -82,6 +87,16 @@ export const fetchUserProfile = async (id) => {
         return response.data;
     } catch (error) {
         console.error(`Error fetching user profile with id ${id}:`, error.response ? error.response.data : error.message);
+        throw error;
+    }
+};
+
+export const createReserva = async (body) => {
+    try {
+        const response = await axios.post(`${BACKEND_URL}/reservas`, body);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating reserva:", error.response ? error.response.data : error.message);
         throw error;
     }
 };

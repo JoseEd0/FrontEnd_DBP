@@ -1,17 +1,22 @@
-// PostRestaurant.jsx
 import React, { useState } from 'react';
+import { createRestaurante } from './Api';
 
-const PostRestaurant = () => {
+const PostRestaurant = ({ onRestaurantCreated = () => {} }) => {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
-  const [cuisine, setCuisine] = useState('');
-  const [priceRange, setPriceRange] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Implementar la lógica para enviar los datos del restaurante a la API
-    console.log(`Posting restaurant: ${name}, ${location}, ${cuisine}, ${priceRange}`);
-  };
+    try {
+        const payload = { name, location };
+        console.log('Payload:', payload);  // Agrega esto para verificar el payload
+        const response = await createRestaurante(payload);
+        console.log('Restaurant created:', response);
+        onRestaurantCreated(response); // Llama a la función pasada por prop
+    } catch (error) {
+        console.error('Error creating restaurant:', error);
+    }
+};
 
   return (
     <div className="post-restaurant">
@@ -29,20 +34,6 @@ const PostRestaurant = () => {
           placeholder="Location" 
           value={location} 
           onChange={(e) => setLocation(e.target.value)} 
-          required 
-        />
-        <input 
-          type="text" 
-          placeholder="Cuisine" 
-          value={cuisine} 
-          onChange={(e) => setCuisine(e.target.value)} 
-          required 
-        />
-        <input 
-          type="text" 
-          placeholder="Price Range" 
-          value={priceRange} 
-          onChange={(e) => setPriceRange(e.target.value)} 
           required 
         />
         <button type="submit">Post Restaurant</button>
